@@ -13,7 +13,7 @@ messages = [
 token_cost=0.00025
 total_cost = 0.0
 for i, message in enumerate(messages,start=1):
-    token_cost += message["token_count"] * 0.00025
+    total_cost += message["token_count"] * token_cost
 
 
     # print(
@@ -21,7 +21,7 @@ for i, message in enumerate(messages,start=1):
     #     f"tokens={message['token_count']} | "
     #     f"cost=${token_cost:.6f}"
     # )
-print(f"Total token cost: ${token_cost:.4f}")
+print(f"Total token cost: ${total_cost}")
 
 filter_loop=[]
 for message in messages:
