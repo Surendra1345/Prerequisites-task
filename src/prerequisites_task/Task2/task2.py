@@ -46,7 +46,7 @@ from pathlib import Path
 
 token_file=Path("task_count.txt")
 lines=[token_file.read_text(encoding="utf-8").splitlines()]
-# print(lines)
+print(lines)
 token_count=[]
 for value in token_file.read_text(encoding="utf-8").splitlines():
     try:
