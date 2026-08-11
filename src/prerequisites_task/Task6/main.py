@@ -1,6 +1,6 @@
 import re
 
-def strip_code_fence(text):
+def strip_code_fence(text)->str:
     pattern = r"```\s*(?:json)?\s*(.*?)\s*```"
 
     match = re.search(pattern, text, re.DOTALL)

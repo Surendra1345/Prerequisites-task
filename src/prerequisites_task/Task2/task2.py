@@ -96,11 +96,11 @@ from cost import total_token_cost
 # P4 Task
 
 class token_counter:
-    def __init__(self, token_cost=0.0025):
+    def __init__(self, token_cost=0.0025)->None:
       """Count the total token cost for a list of messages"""
       self.total_cost=0.0
       self.token_cost=token_cost
-    def add(self,token_count):
+    def add(self,token_count)->int|None:
         self.total_cost+=token_count
     def get_total_cost(self):
         return self.total_cost*self.token_cost
@@ -159,7 +159,7 @@ print(f"Word Processor: {word.processor()}")
 
 from functools import lru_cache
 @lru_cache(maxsize=128)
-def square(n):
+def square(n)->int:
     """Calculate the square of a number"""
     print(f"Calculating square of {n}")
     return n*n

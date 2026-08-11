@@ -1,0 +1,23 @@
+[
+    {
+        "role":"User",
+        "text":"Hello",
+        "token_count": 5
+    },
+    {
+        "role":"Assistant",
+        "text":"Hi there! How can I assist you today?",
+        "token_count": 10
+    },
+    {
+        "role":"User",
+        "text":"Can you tell me a joke?",
+        "token_count": 7
+    },
+    {
+        "role":"Assistant",
+        "text":"Why don't scientists trust atoms? Because they make up everything!",
+        "token_count": "hello"
+    }
+
+]
