@@ -1,5 +1,4 @@
-from fastapi import FastAPI
-from pydantic import BaseModel,ValidationError
+from pydantic import BaseModel, ValidationError
 
 class Message(BaseModel):
     role:str
