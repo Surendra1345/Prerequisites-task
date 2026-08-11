@@ -1,0 +1,2 @@
+traceback:
+The traceback showed that json.load() failed because the JSON file was missing a closing brace.
