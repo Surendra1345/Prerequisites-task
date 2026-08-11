@@ -13,8 +13,8 @@ except json.JSONDecodeError:
 
 
 class TokencountError(Exception):
-   pass
-def token_count(token):
+    pass
+def token_count(token)->int:
     if token<0:
         raise TokencountError("Token count cannot be negative")
 
