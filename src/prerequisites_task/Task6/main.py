@@ -83,19 +83,22 @@ This is also invalid: 12345678901.
 numbers = re.findall(r"\b\d{10}\b", text)
 print(numbers)
 
-invalid_ids = [
+valid_ids = [
     "ABC-1234",
+]
+
+invalid_ids = [
     "abc-1234",
     "ABC-123",
     "ABC1234",
     "ABC-12345",
 ]
 
-for invalid_id in invalid_ids:
-    if re.match(r"^[A-Z]{3}-\d{4}$", invalid_id):
-        print(f"{invalid_id} is valid")
+for test_id in valid_ids + invalid_ids:
+    if re.match(r"^[A-Z]{3}-\d{4}$", test_id):
+        print(f"{test_id} is valid")
     else:
-        print(f"{invalid_id} is invalid")
+        print(f"{test_id} is invalid")
 
 
 text = "నా ఫోన్ నంబర్ 9876543210."
