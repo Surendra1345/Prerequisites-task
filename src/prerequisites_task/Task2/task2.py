@@ -10,10 +10,10 @@ messages = [
     {"role": "user", "content": "What is a function?", "token_count": 14},
     {"role": "assistant", "content": "A function is reusable code.", "token_count": 30},
 ]
-token_cost=0.00025
-total_cost = 0.0
-for i, message in enumerate(messages,start=1):
-    total_cost += message["token_count"] * token_cost
+# token_cost=0.00025
+# total_cost = 0.0
+# for i, message in enumerate(messages,start=1):
+#     total_cost += message["token_count"] * token_cost
 
 
     # print(
@@ -21,7 +21,7 @@ for i, message in enumerate(messages,start=1):
     #     f"tokens={message['token_count']} | "
     #     f"cost=${token_cost:.6f}"
     # )
-print(f"Total token cost: ${total_cost}")
+# print(f"Total token cost: ${total_cost}")
 
 filter_loop=[]
 for message in messages:
@@ -85,3 +85,8 @@ first_list.append(5)
 print(f"First list: {first_list}")
 print(f"Second list: {second_list}")
 print(first_list is second_list)  
+
+from cost import total_token_cost
+""" Calculate the total token cost for a list of messages"""
+
+print(f"Total token cost using function: ${total_token_cost(messages):4f}")
