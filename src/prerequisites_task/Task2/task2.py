@@ -1,15 +1,17 @@
+from Enums import Model
 messages = [
-    {"role": "user", "content": "Hello", "token_count": 10},
-    {"role": "assistant", "content": "Hi, how can I help?", "token_count": 15},
-    {"role": "user", "content": "What is Python?", "token_count": 20},
-    {"role": "assistant", "content": "Python is a programming language.", "token_count": 18},
-    {"role": "user", "content": "What is a list?", "token_count": 12},
-    {"role": "assistant", "content": "A list stores multiple values.", "token_count": 22},
-    {"role": "user", "content": "What is a dictionary?", "token_count": 16},
-    {"role": "assistant", "content": "A dictionary stores key-value pairs.", "token_count": 25},
-    {"role": "user", "content": "What is a function?", "token_count": 14},
-    {"role": "assistant", "content": "A function is reusable code.", "token_count": 30},
+    {"role": Model.User, "content": "Hello", "token_count": 10},
+    {"role": Model.Assistant, "content": "Hi, how can I help?", "token_count": 15},
+    {"role": Model.User, "content": "What is Python?", "token_count": 20},
+    {"role": Model.Assistant, "content": "Python is a programming language.", "token_count": 18},
+    {"role": Model.User, "content": "What is a list?", "token_count": 12},
+    {"role": Model.Assistant, "content": "A list stores multiple values.", "token_count": 22},
+    {"role": Model.User, "content": "What is a dictionary?", "token_count": 16},
+    {"role": Model.Assistant, "content": "A dictionary stores key-value pairs.", "token_count": 25},
+    {"role": Model.User, "content": "What is a function?", "token_count": 14},
+    {"role": Model.Assistant, "content": "A function is reusable code.", "token_count": 30},
 ]
+# print(messages)
 # token_cost=0.00025
 # total_cost = 0.0
 # for i, message in enumerate(messages,start=1):
@@ -89,4 +91,77 @@ print(first_list is second_list)
 from cost import total_token_cost
 """ Calculate the total token cost for a list of messages"""
 
-print(f"Total token cost using function: ${total_token_cost(messages):4f}")
+# print(f"Total token cost using function: ${total_token_cost(messages):4f}")
+
+# P4 Task
+
+class token_counter:
+    def __init__(self, token_cost=0.0025):
+      """Count the total token cost for a list of messages"""
+      self.total_cost=0.0
+      self.token_cost=token_cost
+    def add(self,token_count):
+        self.total_cost+=token_count
+    def get_total_cost(self):
+        return self.total_cost*self.token_cost
+
+    
+counter=token_counter()
+counter.add(100)
+counter.add(200)
+counter.add(300)
+print(f"Total cost:${counter.total_cost}")
+print(f"Total token cost: ${counter.get_total_cost()}")
+
+# Dataclasses
+
+from dataclasses import dataclass
+
+@dataclass
+class Document:
+    """A simple document class"""
+    text:str
+    page:int
+    source:str
+
+count=Document(
+    text="This is a sample document.",
+    page=5,
+    source="Generated"
+)
+
+print(f"Document text: {count.text}")
+print(f"Document page: {count.page}")
+print(f"Document source: {count.source}")
+
+
+class DocumentProcessor:
+    def processor(self):
+        raise NotImplementedError
+
+class PDFProcessor(DocumentProcessor):
+    def processor(self):
+        # return "Processing PDF document"
+         pass
+
+class WordProcessor(DocumentProcessor):
+    def processor(self):
+        #  return "Processing Word document"
+         pass
+
+pdf=PDFProcessor()
+word=WordProcessor()
+print(f"PDF Processor: {pdf.processor()}")
+print(f"Word Processor: {word.processor()}")
+
+
+# Decarator
+
+from functools import lru_cache
+@lru_cache(maxsize=128)
+def square(n):
+    """Calculate the square of a number"""
+    print(f"Calculating square of {n}")
+    return n*n
+print(square(4))
+print(square(10))
