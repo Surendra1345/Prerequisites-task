@@ -17,7 +17,7 @@ def strip_code_fence(text):
 #     }
 #     ```"""
 
-# wiothout the fence
+# without the fence
 text= """json
 {
     "role": "user",
