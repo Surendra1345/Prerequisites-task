@@ -30,7 +30,7 @@ result=strip_code_fence(text)
 print(result)
 
 # finding the phone numbers in the text 
-text=" i have two phone numners 6303023283 and 9812713822"
+text = " i have two phone numbers 6303023283 and 9812713822"
 result=re.findall(r"\d{10}",text)
 print(result)
 
