@@ -34,12 +34,15 @@ class Message(BaseModel):
     text:str
     token_count:int
 
-try:
-    message=[Message(**item) for item in data]
-    for msg in message:
-        print(msg)
-except ValidationError as e:
-    print("Validation error:", e)
+messages: list[Message] = []
+for i, item in enumerate(data):
+    try:
+        messages.append(Message(**item))
+    except ValidationError as e:
+        print(f"Validation error in item {i}: {e}")
+
+for msg in messages:
+    print(msg)
 
 
 import os
